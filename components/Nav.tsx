@@ -25,7 +25,12 @@ export default function Nav() {
           }}
           style={{ padding: 0 }}
         >
-          <Typography variant="h6">R-MUI</Typography>
+          <Typography
+            sx={{ fontWeight: "bold", fontSize: "35px", width: "10em" }}
+            variant="h6"
+          >
+            R-MUI
+          </Typography>
 
           <Search />
 

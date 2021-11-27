@@ -1,9 +1,6 @@
 import React from "react";
+import { Box } from "@mui/material";
 
 export default function SideMenu() {
-  return (
-    <div>
-      <h2>side menu</h2>
-    </div>
-  );
+  return <Box>this is my box</Box>;
 }
