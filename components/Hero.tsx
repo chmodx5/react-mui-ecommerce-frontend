@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 
 export default function Hero() {
   return (
-    <Grid container sx={{ height: "70vh" }} spacing={2}>
+    <Grid container sx={{ height: "70vh", marginTop: "5em" }} spacing={2}>
       <Grid item style={{ background: "teal" }} xs={12} sm={12} md={3} lg={3}>
         <SideMenu />
       </Grid>

@@ -16,7 +16,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function Nav() {
   return (
-    <AppBar position="static" color="default">
+    <AppBar position="fixed" color="default">
       <Container>
         <Toolbar
           sx={{
