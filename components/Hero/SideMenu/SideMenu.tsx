@@ -297,78 +297,85 @@ export default function SideMenu() {
     <Paper
       elevation={4}
       sx={{
-        height: "600px",
+        height: "100%",
         width: "auto",
         display: "inline-block",
+        position: "absolute",
+        zIndex: "99",
       }}
     >
       <Box sx={{ display: "flex", height: "100%" }}>
-        <React.Fragment>
-          <MenuList dense sx={{ width: "250px", height: "100%" }}>
+        <MenuList dense sx={{ minWidth: "250px", height: "100%" }}>
+          {SideMenuItems.map((SideMenuItem, index) => {
+            return (
+              <MenuItem
+                disableGutters
+                key={index}
+                onMouseLeave={() => {
+                  setIsShown(false);
+                  setSelectedItem(SideMenuItem.text);
+                }}
+                onMouseEnter={() => {
+                  setIsShown(true);
+                  setSelectedItem(SideMenuItem.text);
+                }}
+              >
+                <ListItemIcon>
+                  <Check />
+                </ListItemIcon>
+                <ListItemText primary={SideMenuItem.text} />
+              </MenuItem>
+            );
+          })}
+        </MenuList>
+        <Divider orientation="vertical" flexItem />
+        {isShown && (
+          <Box
+            sx={{
+              padding: "0 10px 0 10px",
+              display: "flex",
+              flexWrap: "wrap",
+              minWidth: "100px",
+            }}
+            onMouseLeave={() => {
+              setIsShown(false);
+            }}
+            onMouseEnter={() => {
+              setIsShown(true);
+            }}
+          >
             {SideMenuItems.map((SideMenuItem, index) => {
               return (
-                <MenuItem
-                  disableGutters
-                  key={index}
-                  onMouseLeave={() => {
-                    setIsShown(true);
-                    setSelectedItem(SideMenuItem.text);
-                  }}
-                  onMouseEnter={() => {
-                    setIsShown(true);
-                    setSelectedItem(SideMenuItem.text);
-                  }}
-                >
-                  <ListItemIcon>
-                    <Check />
-                  </ListItemIcon>
-                  <ListItemText primary={SideMenuItem.text} />
-                </MenuItem>
+                <React.Fragment key={index}>
+                  {selectedItem === SideMenuItem.text && (
+                    <React.Fragment>
+                      {SideMenuItem.sub_items.map((sub_item, index) => {
+                        return (
+                          <MenuList
+                            dense
+                            sx={{
+                              margin: "4px",
+                            }}
+                            key={index}
+                          >
+                            <ListSubheader>{sub_item.text}</ListSubheader>
+                            {sub_item.sub_items.map((sub_item, index) => {
+                              return (
+                                <MenuItem key={index}>
+                                  <ListItemText primary={sub_item.title} />
+                                </MenuItem>
+                              );
+                            })}
+                          </MenuList>
+                        );
+                      })}
+                    </React.Fragment>
+                  )}
+                </React.Fragment>
               );
             })}
-          </MenuList>
-          <Divider orientation="vertical" flexItem />
-          {isShown && (
-            <Box
-              sx={{
-                padding: "0 10px 0 10px",
-                display: "flex",
-                flexWrap: "wrap",
-              }}
-            >
-              {SideMenuItems.map((SideMenuItem, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    {selectedItem === SideMenuItem.text && (
-                      <React.Fragment>
-                        {SideMenuItem.sub_items.map((sub_item, index) => {
-                          return (
-                            <MenuList
-                              dense
-                              sx={{
-                                margin: "4px",
-                              }}
-                              key={index}
-                            >
-                              <ListSubheader>{sub_item.text}</ListSubheader>
-                              {sub_item.sub_items.map((sub_item, index) => {
-                                return (
-                                  <MenuItem key={index}>
-                                    <ListItemText primary={sub_item.title} />
-                                  </MenuItem>
-                                );
-                              })}
-                            </MenuList>
-                          );
-                        })}
-                      </React.Fragment>
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </Box>
-          )}
-        </React.Fragment>
+          </Box>
+        )}
       </Box>
     </Paper>
   );

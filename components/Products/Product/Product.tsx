@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function PromoCard() {
+export default function Product() {
   return (
     <div>
-      <h2>promo card</h2>
+      <h2>product card</h2>
     </div>
   );
 }

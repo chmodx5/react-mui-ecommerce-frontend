@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import Footer from "../components/Footer/Footer";
+import Nav from "../components/Nav/Nav/Nav";
 import Head from "next/head";
 import { Container } from "@mui/material";
 import theme from "./../themes/theme";

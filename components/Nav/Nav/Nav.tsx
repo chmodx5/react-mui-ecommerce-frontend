@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import React from "react";
-import Search from "../components/Search";
+import Search from "../Search/Search";
 
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";

@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Carousel() {
+export default function Newsletter() {
   return (
     <div>
-      <h2>carousel</h2>
+      <h1>newsletter</h1>
     </div>
   );
 }

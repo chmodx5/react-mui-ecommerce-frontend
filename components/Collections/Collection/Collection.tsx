@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CollectionCard() {
+export default function Collection() {
   return (
     <div>
       <h2>CollectionCard</h2>
