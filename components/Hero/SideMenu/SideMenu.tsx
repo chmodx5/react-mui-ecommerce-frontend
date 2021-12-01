@@ -13,6 +13,11 @@ import {
 import Check from "@mui/icons-material/Check";
 import { Box } from "@mui/system";
 
+//defining the types
+interface shown {
+  isShown: boolean;
+}
+
 let SideMenuItems = [
   {
     icon: "Supermarket",

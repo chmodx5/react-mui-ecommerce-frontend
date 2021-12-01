@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../layouts/MainLayout/MainLayout";
 import Hero from "../components/Hero/Hero/Hero";
 import Products from "../components/Products/Products/Products";
 import Collections from "../components/Collections/Collections/Collections";
